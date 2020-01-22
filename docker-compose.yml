@@ -1,0 +1,15 @@
+version: '3.1'
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: 'java-tdd-mysql'
+    ports:
+      - '33060:3306'
+    volumes:
+      - java-tdd-mysql-volume:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: '1234'
+      MYSQL_DATABASE: 'java-tdd'
+volumes:
+  java-tdd-mysql-volume:
