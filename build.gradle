@@ -5,13 +5,18 @@ plugins {
 group 'com.aimatus'
 version '0.1'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 11
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.6.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.0")
+    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.6.0")
+    testCompile "org.mockito:mockito-core:2.+"
+    testCompile "org.mockito:mockito-junit-jupiter:3.3.0"
     compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.13'
 }
